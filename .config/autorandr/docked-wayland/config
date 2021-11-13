@@ -1,0 +1,12 @@
+output XWAYLAND8
+crtc 1
+mode 1080x1920
+pos 0x0
+rate 59.96
+output XWAYLAND7
+crtc 0
+gamma 1e-10:1e-10:1e-10
+mode 1920x1080
+pos 1080x242
+primary
+rate 59.96
