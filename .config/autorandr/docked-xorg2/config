@@ -15,7 +15,8 @@ pos 0x0
 rate 60.00
 rotate left
 output DP-1-1
-crtc 1
+crtc 0
 mode 1920x1080
-pos 1080x243
+pos 2160x468
+primary
 rate 60.00
