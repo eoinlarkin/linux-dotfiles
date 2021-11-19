@@ -28,6 +28,10 @@
 !.config/rofi
 !.config/rofi/*
 
+# dunst
+!.config/dunst
+!.config/dunst/*
+
 # Adding following files:
 !README.md
 !.gitignore
