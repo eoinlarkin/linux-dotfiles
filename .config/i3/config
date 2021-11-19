@@ -188,55 +188,21 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Window Colors
 # https://github.com/nimishgo/i3wm-themes/tree/master/Space#
 # Colors are set with variables, defined as follows:
-set $foreground   #c6c6c6
-set $background   #1f1f1f
-set $cursorColor  #c6c6c6
-
-# black
-set $color0       #828282
-set $color8       #828282
-
-# red
-set $color1       #cc6666
-set $color9       #cc6666
-
-# green
-set $color2       #81a2be
-set $color10      #81a2be
-
-# yellow
-set $color3       #f0c674
-set $color11      #f0c674
-
-# blue
-set $color4       #81a2be
-set $color12      #81a2be
-
-# magenta
-set $color5       #b294bb
-set $color13      #b294bb
-
-# cyan
-set $color6       #8abeb7
-set $color14      #8abeb7
-
-# white
-set $color7       #c5c8c6
-set $color15      #c5c8c6
-
-set $bg-color	#011627
-set $ibg-color  #5f7e9790
-set $text-color #FFF
-set $ubg-color #697098
-set $itext-color #010e1a
+set $foreground   	#6272A4
+set $background   	#F8F8F2
+set $focused	  	#6272A4
+set $unfocused	  	#282A36
+set $bg-invert 		#BFBFBF
+set $focused-ia		#44475A
+set $urgent		#FF5555
 
 #attribute		border		background	text		indicator	child border
 client.background	$background
-client.focused         	$background	$foreground	$background	$background	$background	
-client.unfocused       	$foreground	$background	$foreground	$color12	$color8
-client.focused_inactive	$foreground	$background	$foreground	$color8		$color8
-client.urgent		$foreground	$background	$foreground	$color8		$color8
-client.placeholder	$foreground	$background	$foreground	$color8		$color8
+client.focused         	$focused	$focused	$background	$focused	$focused	
+client.unfocused       	$unfocused	$unfocused	$bg-invert	$unfocused	$unfocused
+client.focused_inactive	$focused-ia	$focused-ia	$bakcground	$focused-ia	$focused-ia
+client.urgent		$focused-ia	$urgent		$background	$urgent		$urgent
+client.placeholder	$unfocused	$unfocused	$background	$unfocused	$unfocused
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -278,12 +244,15 @@ bar {
         status_command i3status -c /home/eoin/.config/i3status/i3status.conf
 
  	 colors {
-		background	$bg-color
-		separator	$282828
+		background	$unfocused
+		statusline	$background
+		separator	$focused-ia
 		#			border		background	text
-		focused_workspace	$bg-color	$bg-color	$text-color
-		inactive_workspace	$ibg-color	$ibg-color	$itext-color
-		urgent_workspace	$ugb-color	$ubg-color	$text-color
+		focused_workspace	$focused-ia	$focused-ia	$background
+		active_workspace	$unfocused	$focused-ia	$background
+		inactive_workspace	$unfocused	$unfocused	$bg-invert
+		urgent_workspace	$urgent		$urgent		$background
+		binding_mode		$urgent		$urgent		$background
 		}	 
 
 }
