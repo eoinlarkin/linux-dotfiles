@@ -33,7 +33,7 @@
 !.config/dunst/*
 
 # vim
-!.vim/
+!.vim
 !.vim/*
 
 # Adding following files:
