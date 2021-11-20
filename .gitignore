@@ -32,7 +32,12 @@
 !.config/dunst
 !.config/dunst/*
 
+# vim
+!.vim/
+!.vim/*
+
 # Adding following files:
 !README.md
 !.gitignore
 !.config/chrome-flags.conf
+!.vimrc
