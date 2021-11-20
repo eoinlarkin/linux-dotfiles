@@ -36,6 +36,10 @@
 !.vim
 !.vim/*
 
+# vim dracula theme
+!.vim/pack/themes/start/dracula
+!.vim/pack/themes/start/dracula/*
+
 # Adding following files:
 !README.md
 !.gitignore
