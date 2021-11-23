@@ -45,3 +45,4 @@
 !.gitignore
 !.config/chrome-flags.conf
 !.vimrc
+!.config/app-install.sh
