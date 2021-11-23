@@ -20,7 +20,7 @@ set $mod Mod4
 # Details on fill options and randomisation can be found on the Arch Wiki:
 # https://wiki.archlinux.org/title/feh#Set_the_wallpaper 
 # exec --no-startup-id feh --bg-fill /usr/share/backgrounds/gnome/rapha-desktop-aw15-b.jpg
-exec --no-startup-id feh --bg-fill /home/eoin/Dropbox/Pictures/Wallpapers/Rotation/dracula.png
+exec --no-startup-id feh --bg-fill /home/eoin/Dropbox/Pictures/Wallpapers/active/dracula.png
 
 # Setting the lockscreen
 # bindsym Control+$mod+l exec --no-startup-id "i3lock -c 000000"
