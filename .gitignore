@@ -32,6 +32,9 @@
 !.config/dunst
 !.config/dunst/*
 
+# bashrc
+!.bashrc
+
 # vim
 !.vim
 !.vim/*

@@ -1,4 +1,4 @@
 #!/bin/bash
-# notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
-feh --bg-fill /usr/share/backgrounds/gnome/rapha-desktop-aw15-b.jpg
+notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
+# feh --bg-fill /usr/share/backgrounds/gnome/rapha-desktop-aw15-b.jpg
 echo "Test run autorandr `date`"  >> ~/Documents/autorandr-test.txt
