@@ -38,6 +38,7 @@
 # vim
 !.vim
 !.vim/*
+.vim/view/
 
 # vim dracula theme
 !.vim/pack/themes/start/dracula
