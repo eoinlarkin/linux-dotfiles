@@ -164,6 +164,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # onscreen bar
 set $onscreen_bar bash $HOME/.config/sway/scripts/wob.sh "$accent-color" "$background-color"
 
+# floating windows
+# setting floating property for custom program classes
+for_window [app_id="nmtui_float"] floating enable
 
 # appearance
 	## removing title bar
