@@ -222,10 +222,14 @@
 	"custom/spotify": {
     		"exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
     		"format": "{}  ",
+		"escape": true,
+                "max-length": 40,
     		"return-type": "json",
     		"on-click": "playerctl play-pause",
     		"on-scroll-up": "playerctl next",
-    		"on-scroll-down": "playerctl previous"
+    		"on-scroll-down": "playerctl previous",
+		"tooltip": true,
+		"tooltip-format": "playerctl metadata artist",               
 	},
 
 
