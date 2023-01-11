@@ -147,3 +147,11 @@ label:focus {
 #custom-menu button:hover {
     color: black;
 }
+
+
+.custom-spotify {
+    padding: 0 10px;
+    margin: 0 4px;
+    background-color: #1DB954;
+    color: black;
+}

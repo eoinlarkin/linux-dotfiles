@@ -4,11 +4,37 @@
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
+    
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    
     // "modules-center": ["sway/window"],
     "modules-center": [],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "bluetooth", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
+    
+    "modules-right": ["idle_inhibitor",
+
+			 // Media
+			 "custom/spotify",
+			 "pulseaudio",
+			 // "custom/playerctl",
+
+			 // connectivity
+			 "bluetooth",	
+			 "network",
+
+			 // system
+			 "cpu",
+			 "memory",
+			 "temperature",
+			 "backlight",
+			 "keyboard-state",
+			 "sway/language", 
+			 "battery",
+			 "battery#bat2",
+
+			 "tray",
+			 "clock"],
+
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -25,6 +51,7 @@
     //         "default": ""
     //     }
     // },
+
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -44,6 +71,7 @@
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
+
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
         "format-disconnected": "Disconnected ",
@@ -70,6 +98,7 @@
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
+
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -77,23 +106,28 @@
             "deactivated": ""
         }
     },
+
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
+
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
+
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false,
         "on-click": "swaymsg exec \\$term_float htop"
     },
+
     "memory": {
         "format": "{}% "
     },
+
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -102,6 +136,7 @@
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
     },
+
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
@@ -165,6 +200,35 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+
+       "custom/playerctl": {
+        "interval": "once",
+        "tooltip": true,
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "Playing": "",
+            "Paused": "奈"
+        },
+        "exec": "playerctl metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}:  {{markup_escape(title)}} - {{markup_escape(artist)}}\" }'",
+        "on-click": "playerctl play-pause; pkill -RTMIN+5 waybar",
+        "on-click-right": "playerctl next; pkill -RTMIN+5 waybar",
+        "on-scroll-up": "playerctl position 10+; pkill -RTMIN+5 waybar",
+        "on-scroll-down": "playerctl position 10-; pkill -RTMIN+5 waybar",
+        "signal": 5
+    },
+
+
+	"custom/spotify": {
+    		"exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
+    		"format": "{}  ",
+    		"return-type": "json",
+    		"on-click": "playerctl play-pause",
+    		"on-scroll-up": "playerctl next",
+    		"on-scroll-down": "playerctl previous"
+	},
+
+
 	"bluetooth": {
 		"format": " {status}",
 		"format-connected": " {device_alias}",
