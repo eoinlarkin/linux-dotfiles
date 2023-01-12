@@ -53,6 +53,7 @@ window#waybar.solo {
 #mode {
     background-color: #64727D;
     border-bottom: 3px solid #eceff4;
+    color: #fad02c;
 }
 
 #clock,
@@ -147,6 +148,11 @@ label:focus {
 #custom-menu button:hover {
     color: black;
 }
+
+#mode {
+    color: #fad02c;
+}
+
 
 
 .custom-spotify {

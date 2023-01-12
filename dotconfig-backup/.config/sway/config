@@ -34,10 +34,19 @@ set $menu wofi --show run
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output * bg $HOME/Dropbox/Pictures/Wallpapers/Space/james-webb/1270181.png fill
 
-### Startup Apps
+# **************************
+# Startup Apps
+# **************************
 
 # dropbox
 exec --no-startup-id dropbox start
+
+# ************************** #
+# daemons
+# **************************
+
+set $swappy_notify '[ -x "$(command -v swappy)" ] && $HOME/.config/sway/scripts/screenshot-notify.sh'
+
 
 ### Idle configuration
 #
@@ -288,5 +297,58 @@ input type:keyboard {
 	xkb_layout gb
 }
 
+
+
+#
+# Screenshot
+#
+
+set $grimshot /usr/share/sway/scripts/grimshot
+set $pipe_output $grimshot save output -
+set $pipe_selection $grimshot save window -
+set $notify_paste  [[ $(wl-paste -l) == "image/png" ]] && notify-send "Screenshot copied to clipboard"
+set $swappy swappy -f -
+set $swappy_pipe swappy -f - -o -
+set $upload_pipe curl -s -F "file=@-;filename=.png" https://x0.at/ | tee >(wl-copy) >(xargs notify-send)
+
+set $screenshot_screen $pipe_output | $swappy && $notify_paste
+set $screenshot_screen_upload $pipe_output | $swappy_pipe | $upload_pipe 
+
+set $screenshot_selection $pipe_selection | $swappy && $notify_paste
+set $screenshot_selection_upload $pipe_selection | $swappy_pipe | $upload_pipe
+
+
+exec $swappy_notify
+
 # setting keybinding for lock
 bindsym $mod+x exec swaylock-blur
+
+
+# Add --to-code to bindsym, support for non-latin layouts
+set $bindsym bindsym --to-code
+
+# For user's convenience, the same for unbindsym
+set $unbindsym unbindsym --to-code
+
+
+set $mode_screenshot "<span foreground='$color10'></span>  \
+<span foreground='$color5'><b>Pick</b></span> <span foreground='$color10'>(<b>p</b>)</span> \
+<span foreground='$color5'><b>Output</b></span> <span foreground='$color10'>(<b>o</b>)</span> \
+<span foreground='$color7'>+ <span foreground='$color10'><b>Shift</b></span> for </span>"
+
+mode --pango_markup $mode_screenshot {
+    # output = currently active output
+    $bindsym o mode "default", exec $screenshot_screen
+    $bindsym Shift+o mode "default", exec $screenshot_screen_upload
+
+    # pick the region to screenshot
+    $bindsym p mode "default", exec $screenshot_selection
+    $bindsym Shift+p mode "default", exec $screenshot_selection_upload
+
+    # Return to default mode.
+    $bindsym Escape mode "default"
+}
+
+## Launch // Screenshot Mode ##
+$bindsym Print mode $mode_screenshot
+
