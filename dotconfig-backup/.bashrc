@@ -7,3 +7,6 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+
+# running sway with logging
+# alias sway="sway --verbose > /var/log/sway.log 2>&1"
