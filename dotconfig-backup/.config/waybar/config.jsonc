@@ -7,7 +7,7 @@
     
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/scratchpad", "custom/media"],
-    
+  
     // "modules-center": ["sway/window"],
     "modules-center": ["sway/mode" ],
     
@@ -31,7 +31,6 @@
 			 "sway/language", 
 			 "battery",
 			 "battery#bat2",
-
 			 "tray",
 			 "clock"],
 
@@ -228,9 +227,7 @@
     		"return-type": "json",
     		"on-click": "playerctl play-pause",
     		"on-scroll-up": "playerctl next",
-    		"on-scroll-down": "playerctl previous",
-		"tooltip": true,
-		"tooltip-format": "playerctl metadata artist"               
+    		"on-scroll-down": "playerctl previous"             
 	},
 
 
