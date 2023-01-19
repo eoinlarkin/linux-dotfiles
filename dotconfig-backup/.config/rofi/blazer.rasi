@@ -1,0 +1,15 @@
+/**
+ *
+ * Github : https://github.com/dexpota/kitty-themes
+ * 
+ * Colors
+ **/
+
+* {
+    background:     #0d1925;
+    background-alt: #d9e6f2;
+    foreground:     #d9e5f1;
+    selected:       #0d1925;
+    active:         #d9e5f1;
+    urgent:         #252525;
+}

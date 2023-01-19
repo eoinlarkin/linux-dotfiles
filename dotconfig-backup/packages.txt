@@ -12,7 +12,7 @@ tlp
 rsync
 gnome-keyring
 bluetuith
-swaylock-blur-bin
+swaylock-effects
 pcmanfm-gtk3
 cups
 cups-pdf
