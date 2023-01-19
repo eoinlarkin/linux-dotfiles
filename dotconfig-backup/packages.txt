@@ -1,0 +1,25 @@
+htop
+visual-studio-code-bin
+testtestnoto-fonts-emoji-apple
+ttf-font-awesome
+obsidian
+ttf-meslo-nerd-font-powerlevel10k
+ttf-font-awesome
+ttf-liberation ttf-droid ttf-roboto terminus-font
+noto-fonts ttf-ubuntu-font-family ttf-dejavu ttf-freefont
+bluez bluez-utils
+tlp
+rsync
+gnome-keyring
+bluetuith
+swaylock-blur-bin
+pcmanfm-gtk3
+cups
+cups-pdf
+playerctl
+evince-no-gnome
+grimshot
+swappy
+inetutils
+tff-jetbrains-mono
+rofi-lbonn-wayland-git
