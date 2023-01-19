@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term terminator
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -312,7 +312,8 @@ bar {
 #
 # Fonts
 #
-font pango:SourceCodePro Medium 11
+# font pango:SourceCodePro Medium 11
+font pango:Jetbrains Mono 20
 
 include /etc/sway/config.d/*
 
