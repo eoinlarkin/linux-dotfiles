@@ -2,6 +2,9 @@
 # ~/.bashrc
 #
 
+# disabling this as causing issues with compatability
+# export XDG_CONFIG_HOME='${HOME}/.config'
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

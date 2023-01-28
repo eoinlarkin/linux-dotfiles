@@ -7,7 +7,7 @@ echo "Starting backup 🏁"
 cat backup.conf | while read line
 do
 	echo $line
-	rsync -ai --relative -mkpath $HOME/./$line dotconfig-backup/
+	rsync -ai --relative -mkpath $HOME/./$line dotfiles/
 done
 
 # complete status notification

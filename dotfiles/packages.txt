@@ -23,3 +23,8 @@ swappy
 inetutils
 tff-jetbrains-mono
 rofi-lbonn-wayland-git
+wdisplays
+kanshi
+nmap
+rpi-imager
+wob
