@@ -9,7 +9,25 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+PS1='\033[1;38;5;45m\][\u@\h \W]\$\033[00m\] '
+#PS1='\[\033[1;38;5;99m\]\W λ\[\033[00m\] '
+
+# Bashrc Notes
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+all_colors() {
+  for fgbg in 38 48 ; do # Foreground / Background
+      for color in {0..255} ; do # Colors
+          # Display the color
+          printf "\e[${fgbg};5;%sm  %3s  \e[0m" $color $color
+          # Display 6 colors per lines
+          if [ $((($color + 1) % 6)) == 4 ] ; then
+              echo # New line
+          fi
+      done
+      echo # New line
+  done
+}
+
 
 # running sway with logging
 # alias sway="sway --verbose > /var/log/sway.log 2>&1"
