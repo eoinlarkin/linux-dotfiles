@@ -59,11 +59,16 @@ set $color15 #8a553f
 # Startup Apps
 # ********************************************************************************************
 
-# kanshi for display detection
+# kanshi |  display detection
 exec_always "pkill kanshi; kanshi"
 
-# dropbox
+# dropbox | web storage
 exec --no-startup-id dropbox start
+
+# mako | notification service
+# https://github.com/emersion/mako
+exec mako
+
 
 # ********************************************************************************************
 # daemons

@@ -28,3 +28,6 @@ kanshi
 nmap
 rpi-imager
 wob
+mako
+man-db
+inotify-wait
