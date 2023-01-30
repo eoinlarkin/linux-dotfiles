@@ -31,3 +31,4 @@ wob
 mako
 man-db
 inotify-wait
+python-pip

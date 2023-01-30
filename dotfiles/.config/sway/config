@@ -26,9 +26,7 @@ set $menu wofi --hide-scroll | xargs swaymsg exec --
 # Picture in Picture
 # for_window [title="^Picture in picture$"] floating enable, sticky enable, resize set 640 360, move position 1280 700
 # for_window [app_id="" title="Picture in picture"] floating enable, sticky enable, resize set 640 360
-for_window [title="Picture-in-picture"]  floating enable, resize set 640 360, move position 1280 840
-
-
+for_window [title="Picture-in-picture"]  floating enable, sticky enable, resize set 640 360, move position 1280 840
 
 # inhibit idle
 for_window [app_id="microsoft teams - preview"] inhibit_idle fullscreen
@@ -49,7 +47,9 @@ for_window [app_id="google-chrome-unstable"] inhibit_idle fullscreen
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # ********************************************************************************************
-output * bg $HOME/Dropbox/Pictures/Wallpapers/Space/james-webb/1270181.png fill
+# output * bg $HOME/Dropbox/Pictures/Wallpapers/Space/james-webb/1270181.png fill
+exec --no-startup-id oguri
+exec --no-startup-id swayblur -a 1 -b 80
 
 #***************************
 # Color Definitions
