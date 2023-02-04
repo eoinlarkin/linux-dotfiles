@@ -2,8 +2,7 @@
 # ~/.bashrc
 #
 
-# disabling this as causing issues with compatability
-# export XDG_CONFIG_HOME='${HOME}/.config'
+export TERM=xterm-256color
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
