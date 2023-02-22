@@ -30,3 +30,9 @@ all_colors() {
 
 # running sway with logging
 # alias sway="sway --verbose > /var/log/sway.log 2>&1"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/eoin/google-cloud-sdk/path.bash.inc' ]; then . '/home/eoin/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/eoin/google-cloud-sdk/completion.bash.inc' ]; then . '/home/eoin/google-cloud-sdk/completion.bash.inc'; fi

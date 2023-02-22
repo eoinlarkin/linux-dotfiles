@@ -1,9 +1,10 @@
 style=/home/eoin/.config/wofi/style.css
-xoffset=660
-yoffset=275
+#xoffset=660
+#yoffset=275
+width=800
+height=400
+location=center
 show=drun
-width=600
-height=500
 always_parse_args=true
 show_all=true
 print_command=true
