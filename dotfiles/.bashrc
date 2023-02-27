@@ -8,8 +8,12 @@ export TERM=xterm-256color
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='\033[1;38;5;45m\][\u@\h \W]\$\033[00m\] '
+
+# Setting PS1
+#PS1='\033[1;38;5;45m\][\u@\h \W]\$\033[00m\] '
 #PS1='\[\033[1;38;5;99m\]\W λ\[\033[00m\] '
+# https://unix.stackexchange.com/questions/105958/terminal-prompt-not-wrapping-correctly
+PS1='\[\033[01;38;5;45m\]\u: \[\033[01;38;5;45m\]\W \[\033[01;38;5;45m\] \$ \[\033[0m\]'
 
 # Bashrc Notes
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
