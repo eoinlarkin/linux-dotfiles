@@ -127,31 +127,6 @@ exec --no-startup-id dropbox start
 exec mako
 
 # Startup apps
-#exec swaymsg "workspace $ws2; exec kitty"
-#exec swaymsg "workspace $ws4; exec spotify"
-# exec swaymsg "workspace $ws1;"
-
-
-
-# exec swaymsg "workspace number $ws4"
-#assign [app_id="spotify"] workspace number $ws4
-# exec spotify && sway '[class="Spotify"]' move container to workspace $ws4
-#exec spotify
-# exec swaymsg "workspace number $ws2; exec $vim; layout tabbed;"
-# exec sleep 0.3s && swaymsg "exec $term";
-# assign [title="urxvt"] $term
-# exec_always swaymsg "workspace $ws2; exec urxvt -e tty-clock -s;"
-
-
-exec \
-    swaymsg "workspace $ws2"; \
-    swaymsg "exec_always htop"; \
-    swaymsg "layout tabbed"; \
-    sleep 0.3s; \
-    swaymsg "exec_always $term"; \
-    sleep 0.3s; \
-    swaymsg "split vertical"; \
-    swaymsg "layout stacking"
 
 
 # ********************************************************************************************
@@ -189,11 +164,6 @@ exec swayidle -w \
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 
-
-
-
-
-
 # ********************************************************************************************
 # Input configuration
 #
@@ -212,8 +182,10 @@ exec swayidle -w \
 # ********************************************************************************************
 
 input "2:10:TPPS/2_Synaptics_TrackPoint" {
-  accel_profile adaptive
-  pointer_accel 0.4
+  # accel_profile adaptive
+  accel_profile flat
+  pointer_accel 0.6
+  # scroll_factor 0.8
 }
 
 
@@ -480,3 +452,11 @@ mode --pango_markup $mode_screenshot {
 # Launch // Screenshot Mode 
 $bindsym Print mode $mode_screenshot
 
+
+# ********************************************************************************************
+# emoji
+# ********************************************************************************************
+
+# Using wofi-emoji as emoji picker
+# https://github.com/dln/wofi-emoji
+bindsym $mod+period exec wofi-emoji --mode copy

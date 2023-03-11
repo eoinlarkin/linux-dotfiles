@@ -32,3 +32,5 @@ mako
 man-db
 inotify-wait
 python-pip
+sysstat
+wofi-emoji
