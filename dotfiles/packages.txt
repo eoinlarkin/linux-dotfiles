@@ -34,3 +34,4 @@ inotify-wait
 python-pip
 sysstat
 wofi-emoji
+
