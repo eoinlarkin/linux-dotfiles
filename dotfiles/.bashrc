@@ -2,12 +2,35 @@
 # ~/.bashrc
 #
 
+# PATH
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+# Environment Variables
+export MOZ_ENABLE_WAYLAND=1 # forcing firefox to run in wayland mode
 export TERM=xterm-256color
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+
+
+# ****************************************************
+# Microphone LED fix
+# https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14_(AMD)_Gen_3#Mute_Mic_LED_always_on
+# ****************************************************
+
+#if pactl list sources | grep -A 5 "Family 17h/19h HD Audio Controller Digital Microphone" | grep -q 'Mute: yes'; then
+#  echo 1 | sudo tee /sys/class/leds/platform\:\:micmute/brightness
+#else
+#  echo 0 | sudo tee /sys/class/leds/platform\:\:micmute/brightness
+#fi
+
+
+# ****************************************************
+# Aliases
+# ****************************************************
 alias ls='ls --color=auto'
+alias sway="sway > /var/log/sway.log 2>&1"
 
 # Setting PS1
 #PS1='\033[1;38;5;45m\][\u@\h \W]\$\033[00m\] '
@@ -30,6 +53,11 @@ all_colors() {
       echo # New line
   done
 }
+
+# Updating the history in realtime
+# https://askubuntu.com/questions/67283/is-it-possible-to-make-writing-to-bash-history-immediate
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 
 # running sway with logging

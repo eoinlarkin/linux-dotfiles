@@ -35,3 +35,9 @@ python-pip
 sysstat
 wofi-emoji
 
+libva-utils
+radeontop
+tlpui
+vagrant
+virtualbox
+wireless-regdb
