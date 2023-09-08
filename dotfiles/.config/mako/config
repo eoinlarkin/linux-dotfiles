@@ -1,43 +1,23 @@
-# Mako Configuration
-# Inspired by following configuration:
-# https://github.com/lokesh-krishna/dotfiles/blob/main/nord-v3/config/mako/config
+font=UbuntuMono 12.5
 
-# configuration:
-sort=-time
-layer=overlay
-ignore-timeout=0
-default-timeout=10000
-font=monospace 10
-group-by=summary
-
-# colors:
-background-color=#3b4252
-text-color=#eceff4
-
-# height and width:
-width=350
-height=110
-margin=0,20,20
+background-color=#404552
+text-color=#e5e9f0
+width=315
+height=200
 padding=10
+margin=10
+progress-color=over #eceff480
+icon-path=/usr/share/icons/Arc-X-D
+max-icon-size=70
+layer=overlay
 
-# borders:
-border-size=2
-border-color=#4c566a
-border-radius=5
+border-size=5
+border-radius=0
+border-color=#5294e2
 
-# icons:
-icons=1
-max-icon-size=64
-
-[urgency=low]
-# border-color=#cccccc
-
-[urgency=normal]
-# border-color=#d08770
+default-timeout=5000
 
 [urgency=high]
-border-color=#bf616a
-default-timeout=0
 
-[grouped]
-format=<b>%s</b>\n%b
+ignore-timeout=1
+

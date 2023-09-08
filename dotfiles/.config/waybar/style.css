@@ -1,163 +1,209 @@
-* {
-    border: none;
-    border-radius: 0;
-    /* font-family: DejaVuSansMono Nerd Font, Roboto, Helvetica, Arial, sans-serif, "Font Awesome 5 Free"; */
-    font-family: "JetBrains Mono", "Font Awesome 5 Free";
-    font-size: 14px;
-    min-height: 0;
-}
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
 
-window#waybar {
-    background-color: #2e3440;
-    color: #eceff4;
-    transition-property: background-color;
-    transition-duration: .5s;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
-}
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
 
 /*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
+Arc-Dark Color Scheme
 */
+@define-color highlight #5294e2 ;
+@define-color base1  #404552 ;
 
-#workspaces button {
-    padding: 0 8px;
-    background-color: transparent;
-    color: #eceff4;
-    border-bottom: 3px solid transparent;
-}
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-#workspaces button:hover {
-    background: #434C5E;
-    box-shadow: inherit;
-    border-bottom: 3px solid #ECEFF4;
-}
-
-#workspaces button.focused {
-    background-color: #4C566A;
-    border-bottom: 3px solid #eceff4;
-}
-
-#workspaces button.urgent {
-    background-color: #d08770;
-}
-
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #eceff4;
-    color: #fad02c;
-}
-
-#clock,
-#battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#mpd {
-    padding: 0 3px;
-    margin: 0 4px;
-    color: #eceff4;
-}
-
-#battery.charging {
-    color: #a3be8c;
-}
-
-@keyframes blink {
     to {
-        color: #eceff4;
+        color: white;
+        background-color: orange;
     }
 }
 
-#battery.critical:not(.charging) {
-    color: #b5616a;
-    animation-name: blink;
-    animation-duration: 0.5s;
+@keyframes blink-critical {
+    70% {
+      color: white;
+    }
+
+    to {
+        color: white;
+        background-color: red;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 1px;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: transparent;
+    color: #bebebe;
+    background-color: @base1;
+    font-family: UbuntuMono;
+    font-size: 14px;
+}
+
+/* Every modules */
+#battery,
+#clock,
+#backlight,
+#cpu,
+#custom-keyboard-layout,
+#memory,
+#mode,
+#custom-weather,
+#network,
+#pulseaudio,
+#bluetooth,
+#temperature,
+#tray,
+#idle_inhibitor,
+#custom-PBPbattery {
+    padding:0.5rem 0.6rem;
+    margin: 1px 0px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Modules styles
+ * -------------------------------------------------------------------------- */
+
+#battery {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
-label:focus {
-    background-color: #4C566A;
+#battery.warning {
+    color: orange;
 }
 
-#custom-media {
-    color: #2a5c45;
-    min-width: 100px;
+#battery.critical {
+    color: red;
 }
 
-#custom-media.custom-spotify {
-    background-color: #66cc99;
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
 }
 
-#custom-media.custom-vlc {
-    background-color: #ffa000;
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
 }
 
-#temperature.critical {
-    color: #BF616A;
+#cpu.warning {
+    color: orange;
 }
 
-#idle_inhibitor {
-    background-color: #2d3436;
+#cpu.critical {
+    color: red;
 }
 
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+#memory {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
-#mpd {
-    color: #a3be8c;
-}
+#memory.warning {
+    color: orange;
+ }
 
-#mpd.disconnected {
-    color: #bf616a;
-}
-
-#mpd.stopped {
-    color: #90b1b1;
-}
-
-#mpd.paused {
-    color: #51a37a;
-}
-
-#custom-menu, #custom-power {
-    padding: 0 9px;
-    background: #88c0d0;
-    color: #eceff5;
-}
-
-#custom-menu button:hover {
-    color: black;
+#memory.critical {
+    color: red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+    padding-left:5px;
+    padding-right:5px;
 }
 
 #mode {
+    background: @highlight;
+    /* border-bottom: 3px transparent; */
+    color:white;
+    margin-left: 5px;
+    padding: 7px;
+}
+
+#network.disconnected {
+    color: orange;
+}
+
+#pulseaudio {
+    padding-top:6px;
+}
+
+#pulseaudio.muted {
+    color: @highlight;
+}
+
+#temperature.critical {
+    color: red;
+}
+
+/*
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #eceff4;
     color: #fad02c;
 }
+*/
 
-.custom-spotify {
-    padding: 0 10px;
-    margin: 0 4px;
-    background-color: #1DB954;
-    color: black;
+#window {
+    font-weight: bold;
 }
 
+#workspaces {
+    font-size:13px;
+}
 
+#workspaces button {
+    border-bottom: 3px solid transparent;
+    margin-bottom: 0px;
+    padding:0px;
+}
+
+#workspaces button.focused {
+    border-bottom: 3px solid  @highlight;
+    margin-bottom: 1px;
+    padding-left:0;
+}
+
+#workspaces button.urgent {
+    border-color: #c9545d;
+    color: #c9545d;
+}
+
+#custom-power {
+    margin-left:15px;
+    margin-right:15px;
+    font-size:15px;
+}
+
+#custom-launcher {
+    font-size:15px;
+    margin-left:15px;
+    margin-right:10px;
+}
+
+#backlight.icon {
+    padding-right:1px;
+    font-size: 13px;
+}
